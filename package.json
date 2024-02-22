@@ -1,0 +1,70 @@
+{
+  "name": "css-hooks-basic",
+  "version": "0.0.0",
+  "description": "A simplified CSS Hooks API for basic use cases",
+  "type": "module",
+  "main": "cjs/index.js",
+  "module": "esm/index.js",
+  "types": "types/index.d.ts",
+  "files": [
+    "cjs",
+    "esm",
+    "types"
+  ],
+  "exports": {
+    "import": {
+      "types": "./types/index.d.ts",
+      "default": "./esm/index.js"
+    },
+    "require": {
+      "types": "./types/index.d.ts",
+      "default": "./cjs/index.js"
+    }
+  },
+  "browserslist": [
+    "supports css-variables"
+  ],
+  "scripts": {
+    "lint": "eslint --fix src",
+    "prepublishOnly": "node -e \"var path=require('path').resolve,fs=require('fs'),cp=fs.cpSync,mkdir=fs.mkdirSync;cp(path('src', 'index.d.ts'),path('types','index.d.ts'));cp(path('src','index.js'),path('esm','index.js'));mkdir(path('cjs'),{recursive:true})\" && ascjs src/index.js cjs/index.js",
+    "test": "tsc && node --test",
+    "test.watch": "tsc-watch --onSuccess 'node --test'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nsaunders/css-hooks-basic.git"
+  },
+  "keywords": [
+    "css",
+    "hooks",
+    "basic",
+    "styling",
+    "style",
+    "jsx"
+  ],
+  "author": "Nick Saunders",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nsaunders/css-hooks-basic/issues"
+  },
+  "homepage": "https://github.com/nsaunders/css-hooks-basic#readme",
+  "peerDependencies": {
+    "@css-hooks/core": ">=2.0.0 <3.0.0"
+  },
+  "devDependencies": {
+    "@css-hooks/core": "^2.0.0",
+    "@tsconfig/strictest": "^2.0.3",
+    "@types/node": "^20.11.19",
+    "@typescript-eslint/eslint-plugin": "^7.0.2",
+    "@typescript-eslint/parser": "^7.0.2",
+    "ascjs": "^6.0.3",
+    "conventional-changelog-cli": "^4.1.0",
+    "conventional-github-releaser": "^3.1.5",
+    "conventional-recommended-bump": "^9.0.0",
+    "eslint": "^8.56.0",
+    "eslint-plugin-compat": "^4.2.0",
+    "prettier": "^3.2.5",
+    "tsc-watch": "^6.0.4",
+    "typescript": "^5.3.3"
+  }
+}

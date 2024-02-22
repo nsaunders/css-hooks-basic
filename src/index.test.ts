@@ -91,6 +91,33 @@ describe("basic(css) function", () => {
     );
   });
 
+  it("given a rule with multiple nested conditions returns the same value as the css function", () => {
+    assert.deepStrictEqual(
+      basic(css)({
+        color: "black",
+        "&:enabled": {
+          "&:hover": {
+            color: "blue",
+          },
+          "&:active": {
+            color: "red",
+          },
+        },
+      }),
+      css({
+        color: "black",
+        on: ($, { and }) => [
+          $(and("&:enabled", "&:hover"), {
+            color: "blue",
+          }),
+          $(and("&:enabled", "&:active"), {
+            color: "red",
+          }),
+        ],
+      }),
+    );
+  });
+
   it("accepts multiple rules", () => {
     assert.deepStrictEqual(
       basic(css)(

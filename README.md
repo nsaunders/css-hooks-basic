@@ -55,9 +55,8 @@ component:
 import { css } from "./css";
 import { basic } from "css-hooks-basic";
 
-export const EasyLink = () => (
-  <a
-    href="#"
+export const EasyButton = () => (
+  <button
     style={basic(css)({
       color: "black",
       "&:enabled": {
@@ -74,7 +73,7 @@ export const EasyLink = () => (
     })}
   >
     Easy
-  </a>
+  </button>
 );
 ```
 

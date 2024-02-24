@@ -42,8 +42,8 @@ project, providing an easier way to define styles.
 
 ### Option 2: Case by case
 
-Alternatively, you can choose to use the basic API on a case-by-case basis. This
-allows you to mix basic and advanced styling conditions according to your needs.
+Alternatively, you can use the basic API on a case-by-case basis. This allows
+you to mix basic and advanced styling conditions according to your needs.
 
 In a component module, simply import `css` from your CSS module and the `basic`
 function from css-hooks-basic; and then use them together to style your

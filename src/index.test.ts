@@ -169,4 +169,16 @@ describe("basic(css) function", () => {
       css({ color: "black" }, undefined),
     );
   });
+
+  it("produces the same result given the same object", () => {
+    const style = {
+      color: "blue",
+      "&:hover": {
+        color: "red",
+      },
+    };
+    const expected = basic(css)(style);
+    const actual = basic(css)(style);
+    assert.deepStrictEqual(actual, expected);
+  });
 });

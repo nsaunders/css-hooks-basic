@@ -32,7 +32,8 @@ function transform(o) {
 
 export function basic(css) {
   return function (...rules) {
-    rules.forEach(transform);
-    return css(...rules);
+    const rulesCopy = JSON.parse(JSON.stringify(rules));
+    rulesCopy.forEach(transform);
+    return css(...rulesCopy);
   };
 }

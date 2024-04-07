@@ -1,6 +1,6 @@
 {
   "name": "css-hooks-basic",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A simplified CSS Hooks API for basic use cases",
   "type": "module",
   "main": "cjs/index.js",
